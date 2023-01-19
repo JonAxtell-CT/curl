@@ -44,6 +44,7 @@ void config_init(struct OperationConfig *config)
   config->http09_allowed = FALSE;
   config->ftp_skip_ip = TRUE;
   config->file_clobber_mode = CLOBBER_DEFAULT;
+  config->ssh_read_timeout = 0;
 }
 
 static void free_config_fields(struct OperationConfig *config)

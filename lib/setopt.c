@@ -1023,7 +1023,6 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option, va_list param)
     }
     if(!authbits)
       return CURLE_NOT_BUILT_IN; /* no supported types left! */
-
     data->set.httpauth = auth;
   }
   break;
@@ -2558,6 +2557,10 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option, va_list param)
      * Custom client data to pass to the SSH keyfunc callback
      */
     data->set.ssh_hostkeyfunc_userp = va_arg(param, void *);
+    break;
+
+  case CURLOPT_SSH_READ_TIMEOUT:
+    data->set.ssh_read_timeout = va_arg(param, long);
     break;
 #endif
 

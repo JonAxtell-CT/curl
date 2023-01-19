@@ -2203,6 +2203,9 @@ typedef enum {
   /* Can leak things, gonna exit() soon */
   CURLOPT(CURLOPT_QUICK_EXIT, CURLOPTTYPE_LONG, 322),
 
+  /* Set the timeout for packet reads via SSH */
+  CURLOPT(CURLOPT_SSH_READ_TIMEOUT, CURLOPTTYPE_LONG, 323),
+
   CURLOPT_LASTENTRY /* the last unused */
 } CURLoption;
 

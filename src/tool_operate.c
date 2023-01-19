@@ -1507,6 +1507,9 @@ static CURLcode single_transfer(struct GlobalConfig *global,
           /* new in libcurl 7.56.0 */
           if(config->ssh_compression)
             my_setopt(curl, CURLOPT_SSH_COMPRESSION, 1L);
+
+          /* new in libcurl 7.69.2 */
+          my_setopt(curl, CURLOPT_SSH_READ_TIMEOUT, config->ssh_read_timeout);
         }
 
         if(config->cacert)

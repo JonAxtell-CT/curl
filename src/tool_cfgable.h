@@ -295,6 +295,8 @@ struct OperationConfig {
   struct State state;             /* for create_transfer() */
   bool rm_partial;                /* on error, remove partially written output
                                      files */
+  long ssh_read_timeout;    /* Timeout for packet reads, requires
+                               libssh2 1.10.2 Default is 60 seconds */
 };
 
 struct GlobalConfig {

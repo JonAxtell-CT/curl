@@ -1717,6 +1717,8 @@ struct UserDefined {
 #ifdef USE_LIBSSH2
   curl_sshhostkeycallback ssh_hostkeyfunc; /* hostkey check callback */
   void *ssh_hostkeyfunc_userp;         /* custom pointer to callback */
+  long ssh_read_timeout;    /* Timeout for packet reads, requires
+                               libssh2 1.10.2 Default is 60 seconds */
 #endif
 #ifdef USE_SSH
   curl_sshkeycallback ssh_keyfunc; /* key matching callback */

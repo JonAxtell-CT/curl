@@ -3276,6 +3276,14 @@ static CURLcode ssh_connect(struct Curl_easy *data, bool *done)
     return CURLE_FAILED_INIT;
   }
 
+  /* Set the packet read timeout if the libssh2 version supports it */
+#ifdef HAVE_LIBSSH2_VERSION
+ if(libssh2_version(0x010A02)) {
+   libssh2_session_set_read_timeout(sshc->ssh_session,
+                                    data->set.ssh_read_timeout);
+  }
+#endif
+
 #ifndef CURL_DISABLE_PROXY
   if(conn->http_proxy.proxytype == CURLPROXY_HTTPS) {
     /*
